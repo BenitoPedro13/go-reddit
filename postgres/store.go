@@ -5,6 +5,7 @@ import (
 
 	goreddit "github.com/benitopedro13/go-reddit"
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 type Store struct {
