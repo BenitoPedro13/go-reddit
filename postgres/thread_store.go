@@ -33,7 +33,7 @@ func (s *ThreadStore) Threads() ([]goreddit.Thread, error) {
 }
 
 func (s *ThreadStore) CreateThread(t *goreddit.Thread) error {
-	if err := s.DB.Get(t, "INSERT INTO threads ($1, $2, $3) RETURNING *", t.ID, t.Title, t.Description); err != nil {
+	if err := s.DB.Get(t, "INSERT INTO threads (id, title, description) VALUES ($1, $2, $3) RETURNING *", t.ID, t.Title, t.Description); err != nil {
 		return fmt.Errorf("failed to create thread: %w", err)
 	}
 
